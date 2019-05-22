@@ -6,7 +6,7 @@
 
 > 类型说明
 
-```
+> ```
     TOKENVAL:当前(lookahead)属性值;
 
     TERMINAL:当前(lookahead)记号名;
@@ -28,7 +28,7 @@
     
     > 词法分析中部分函数,变量说明
     
-    ```
+  >  ```
     static char ReadAChar();//从文件中读入下一个字符或从缓存(prebuf)中读入字符;
     
     static int FoundRELOOP();//关系符判断;
@@ -65,8 +65,8 @@
 
 ### 部分错误修改
 
--   LexicalAnalysis.c
-    -   1.当读到由两个关系符组成的关系符时,不需要缓存后一个关系符,故修改 `FoundRELOOP`中两个符号的关系符,去除后一个符号的缓存.
+> LexicalAnalysis.c
+>>   1.当读到由两个关系符组成的关系符时,不需要缓存后一个关系符,故修改 `FoundRELOOP`中两个符号的关系符,去除后一个符号的缓存.
 
 ```c
     else if (tokenStr[0]=='=' && tokenStr[1]=='=') { prebuf = 0; return(SYN_EQ); }
@@ -78,7 +78,7 @@
     else if (tokenStr[0]=='|' && tokenStr[1]=='|') { prebuf = 0; return(SYN_OR); }
 ```
 
-> 测试程序:
+>>> 测试程序:
 
 ```c
 main()
@@ -94,8 +94,8 @@ if(i==0)
   源程序无结果,修改后输出`111`
 ```
 
--   SyntaxAnalysis.c
-    -   1.在`Prod_S`中,在结束一次while循环恢复指针后,要再读一次文件
+> SyntaxAnalysis.c
+>> 1.在`Prod_S`中,在结束一次while循环恢复指针后,要再读一次文件
 
 ```c
         if (run_status==1)
@@ -106,7 +106,7 @@ if(i==0)
 ```
 
 ```
-*2.在`Prod_TB1`中有笔误,将bval1改为bval2
+>> 2.在`Prod_TB1`中有笔误,将bval1改为bval2
 ```
 
 ```c
