@@ -30,7 +30,6 @@
     
  >  词法分析中部分函数,变量说明
     
-   ```
     static char ReadAChar();//从文件中读入下一个字符或从缓存(prebuf)中读入字符;
     
     static int FoundRELOOP();//关系符判断;
@@ -40,15 +39,14 @@
     static char prebuf=0;    //缓存多读的一个字符;
     
     static char tokenStr[MAXTOKENLEN];    //目前读取的词法单元;
-
     
->   语法分析
     
-    ![](https://github.com/444749308/Report-of-Compling/blob/master/Picture/%E8%AF%AD%E6%B3%95.PNG)
+>  语法分析
     
-    > 语法分析中部分函数,变量说明
+![](https://github.com/444749308/Report-of-Compling/blob/master/Picture/%E8%AF%AD%E6%B3%95.PNG)
     
-    ```
+> 语法分析中部分函数,变量说明
+    
     Prod开头的函数都分别对应语法分析中的非终结符.
     
     static TERMINAL lookahead;//下一个读到的词法单元
@@ -62,7 +60,7 @@
     static IDTABLE *IDTHead=NULL;//存储变量的链表头部
     
     static int run_status = 1;//0；程序不执行；1:程序正常执行；2:if跳过 3:while 跳过
-    ```
+
     
 
 ### 部分错误修改
@@ -107,9 +105,8 @@ if(i==0)
         }
 ```
 
-```
 >> 2.在`Prod_TB1`中有笔误,将bval1改为bval2
-```
+
 
 ```c
         bval2=Prod_FB();//错误修改
