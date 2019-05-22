@@ -15,7 +15,7 @@
       * IDTABLE:存储变量信息的链表(栈);
   * 词法分析DFA转换表
   
-    ![](https://github.com/444749308/Picture/blob/master/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90DFA%E8%BD%AC%E6%8D%A2%E8%A1%A8.PNG)
+    ![](https://github.com/444749308/Report-of-Compling/blob/master/Picture/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90DFA%E8%BD%AC%E6%8D%A2%E8%A1%A8.PNG)
     
     * 10*表示接收状态，但多读了一个有用符号，需要缓存
     * 20*表示接收状态，没有多读有用符号
@@ -32,4 +32,4 @@
   	* static char tokenStr[MAXTOKENLEN];	//目前读取的词法单元;
 * 语法分析
 
-  ![](https://github.com/444749308/Picture/blob/master/%E8%AF%AD%E6%B3%95.PNG)
+  ![](https://github.com/444749308/Report-of-Compling/blob/master/Picture/%E8%AF%AD%E6%B3%95.PNG)
