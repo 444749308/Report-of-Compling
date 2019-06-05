@@ -1,6 +1,30 @@
 # Report-of-Compling
 
 
+
+Table of Contents
+=================
+
+   * [Report-of-Compling](#report-of-compling)
+      * [实验内容1](#实验内容1)
+         * [说明文件](#说明文件)
+         * [部分错误修改](#部分错误修改)
+      * [实验内容2](#实验内容2)
+         * [constvar.h](#constvarh)
+         * [LexicalAnalysis.c](#lexicalanalysisc)
+         * [SyntaxAnalysis.c](#syntaxanalysisc此处修改基本对称于整型)
+         * [测试](#测试)
+      * [实验内容3](#实验内容3)
+         * [SyntaxAnalysis.c](#syntaxanalysisc)
+         * [测试](#测试-1)
+      * [实验内容4](#实验内容4)
+         * [constvar.h](#constvarh-1)
+         * [LexicalAnalysis.c](#lexicalanalysisc-1)
+         * [SyntaxAnalysis.c](#syntaxanalysisc-1)
+         * [测试](#测试-2)
+
+
+
 ## 实验内容1
 
 ### 说明文件
@@ -184,7 +208,7 @@ main()
 
 > 更改后的dfa分析表如实验内容1中所示.
 
-> constvar.h
+### constvar.h
 
 >> 1.修改`TOKENVAL`类型,增添字符型;
 
@@ -219,7 +243,7 @@ static int LexTable[9][10]=
 #define SYN_QUOTA	28	 	//’
 ```
 
-> LexicalAnalysis.c
+### LexicalAnalysis.c
 
 >> 1.新增常量,用于单引号与转义字符的匹配
 
@@ -304,7 +328,7 @@ void EscTrans(char c)
 }
 ```
 
-> SyntaxAnalysis.c(此处修改基本对称于整型)
+### SyntaxAnalysis.c(此处修改基本对称于整型)
 
 >>  1.增加变量`curtoken_ch`来存储字符值,对应于其他`curtoken_`
 
@@ -338,7 +362,7 @@ static char curtoken_ch;
     	}
 ```
 
->测试
+### 测试
 
 >>测试1:
 
@@ -401,7 +425,7 @@ z
 > 更改的语法部分已在实验内容1中用红色标识出来
     思路:由于逻辑运算的优先级低于算术运算,故将原先所有的非终结符E替换为B,然后再由B=>* E,即可以在保留原算术计算的同时实现逻辑运算.重点在与如何完美的衔接逻辑运算与算术运算.修改F<sub>B</sub>,添加<sub>B1</sub>,使得逻辑运算可以多次进行,并且与算术运算联系了起来;
     
-> SyntaxAnalysis.c
+### SyntaxAnalysis.c
 
 >> 1.修改变量类型,把原本逻辑表达式所返回的int型改为EXPVAL,使其类型与算术表达式统一,涉及到以下函数(声明)与变量(声明):
 
@@ -637,7 +661,10 @@ static EXPVAL Prod_F()
 
 >> 之前原程序中的以1表示true都改为不等于0为true
 
+### 测试
+
 >>测试1
+
 >>> 源程序
 ```c
 main()
@@ -664,12 +691,13 @@ main()
 5
 ```
 
-##实验内容4
+## 实验内容4
+
 
 > break即到达该while的大括号前都将run_status置3,并在读完该大括号后将run_status在置回1;
 > continue即直接把文件指针移回之前记录的while循环开始处.
 
-> constvar.h
+### constvar.h
 
 >> 添加状态
 ```c
@@ -677,7 +705,7 @@ main()
 #define SYN_BREAK    63     //break
 ```
 
->> LexicalAnalysis.c
+### LexicalAnalysis.c
 
 >>> 在关键字查找`FoundKeyword()`中增加对break和continue的查找
 
@@ -686,7 +714,7 @@ main()
 	if (strcompare(tokenStr,"break")) return(SYN_BREAK);
 ```
 
->> SyntaxAnalysis.c
+### SyntaxAnalysis.c
 
 >>> 在`Prod_S`中添加break的判断,即将run_status置3
 
@@ -739,8 +767,10 @@ main()
 ```
 
 
->> 测试
+### 测试
+
 >>> 源程序
+
 ```c
 main()
 {
